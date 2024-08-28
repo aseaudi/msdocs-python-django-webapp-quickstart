@@ -26,3 +26,15 @@ For deployment to production, create an app setting, `SECRET_KEY`. Use this comm
 ```shell
 python -c 'import secrets; print(secrets.token_hex())'
 ```
+
+## How to deploy to AKS
+
+```
+docker build -t <acr-name>/django-demo .
+docker push <acr-name>/django-demo
+kubctl apply -f deploy.yaml
+kubectl get deployment
+kubectl get pods
+kubectl get service
+curl <endpoin-ip>:8000
+```
