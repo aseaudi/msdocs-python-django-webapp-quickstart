@@ -30,11 +30,13 @@ python -c 'import secrets; print(secrets.token_hex())'
 ## How to deploy to AKS
 
 ```
-docker build -t <acr-name>/django-demo .
-docker push <acr-name>/django-demo
+docker build -t <acr-name>.azurercr.io/django-demo .
+docker push <acr-name>azurecr.io/django-demo
 kubctl apply -f deploy.yaml
 kubectl get deployment
 kubectl get pods
 kubectl get service
-curl <endpoin-ip>:8000
+kubectl get endpoint
+curl http://<endpoint-ip>:8000
+open your web browser and go to http://<endpoint-ip>:8000 
 ```

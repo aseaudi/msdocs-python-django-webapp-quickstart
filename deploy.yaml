@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: django-demo
-        image: acr694644.azurecr.io/django-demo:1
+        image: acr694644.azurecr.io/django-demo
         ports:
         - containerPort: 8000
 ---
