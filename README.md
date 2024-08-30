@@ -33,6 +33,10 @@ Start Docker Desktop for Windows, and ensure docker engine is "Running".
 
 If you get errors about Hyper-V service, just restart the VM.
 
+If you get error saying the user is not part of the docker-users group, just run the aks.ps1 powershell script on the desktop, or run the command "net localgroup docker-users <user-name> /add" in the command line interace or powershell.
+
+If you get error saying the user is a member of docker-users group, but you need to signoff, then just logoff and logon again.
+
 Ensure you have proper access to the AKS cluster by running the command below.
 
 ```
