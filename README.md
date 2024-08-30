@@ -36,7 +36,7 @@ kubctl apply -f deploy.yaml
 kubectl get deployment
 kubectl get pods
 kubectl get service
-kubectl get endpoint
+kubectl get endpoints
 curl http://<endpoint-ip>:8000
 open your web browser and go to http://<endpoint-ip>:8000 
 ```
