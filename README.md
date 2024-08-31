@@ -75,12 +75,21 @@ spec:
 ```
 After updating deploy.yaml, deploy the application using the commands below
 ```
-kubctl apply -f deploy.yaml
-kubectl get deployment
-kubectl get pods
-kubectl get service
-kubectl get endpoints
-curl http://<endpoint-ip>:8000
+C:\Users\user1234\Desktop\msdocs-python-django-webapp-quickstart>kubectl apply -f deploy.yaml
+deployment.apps/django-demo-deployment created
+service/django-demo-service created
+C:\Users\user1234\Desktop\msdocs-python-django-webapp-quickstart>kubectl get pods
+NAME                                      READY   STATUS    RESTARTS   AGE
+django-demo-deployment-65c5df984f-48bs9   1/1     Running   0          82s
+C:\Users\user1234\Desktop\msdocs-python-django-webapp-quickstart>kubectl get svc
+NAME                  TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+django-demo-service   ClusterIP   10.0.133.103   <none>        8000/TCP   86s
+kubernetes            ClusterIP   10.0.0.1       <none>        443/TCP    56m
+C:\Users\user1234\Desktop\msdocs-python-django-webapp-quickstart>kubectl get ep
+NAME                  ENDPOINTS          AGE
+django-demo-service   10.224.0.30:8000   89s   <<< endpoint-ip = 10.224.0.30
+kubernetes            10.224.0.6:443     56m
+C:\Users\user1234\Desktop\msdocs-python-django-webapp-quickstart>
 ```
 
 Open your web browser and go to http://<endpoint-ip>:8000, and you should see the application frontend so you can test it is functional.
