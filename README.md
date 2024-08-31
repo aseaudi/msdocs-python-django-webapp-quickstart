@@ -55,10 +55,12 @@ After aks.ps1 script runs, check again that AKS is OK for you.
 Run the following commands to build and deploy the sample application in AKS.
 
 ```
-az acr login --name <acr-name>.azurecr.io
-cd c:\users\<username>\msdocs-python-django-webapp-quickstart
+cd c:\users\<username>\desktop\msdocs-python-django-webapp-quickstart
 docker build -t <acr-name>.azurercr.io/django-demo .
 docker push <acr-name>azurecr.io/django-demo
+# if docker push gives unauthorized error run the below command to login to azure contaienr registry
+# az acr login --name <acr-name>.azurecr.io
+# docker push <acr-name>azurecr.io/django-demo
 kubctl apply -f deploy.yaml
 kubectl get deployment
 kubectl get pods
